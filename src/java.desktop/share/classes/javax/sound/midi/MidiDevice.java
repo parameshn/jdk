@@ -98,7 +98,6 @@ import org.checkerframework.framework.qual.AnnotatedFor;
  * @see Transmitter
  */
 @AnnotatedFor({"mustcall"})
-@InheritableMustCall("close")
 public interface MidiDevice extends AutoCloseable {
 
     /**
@@ -128,6 +127,7 @@ public interface MidiDevice extends AutoCloseable {
      * @see #close
      * @see #isOpen
      */
+    @CreatesMustCallFor
     void open() throws MidiUnavailableException;
 
     /**
